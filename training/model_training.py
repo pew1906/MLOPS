@@ -23,4 +23,4 @@ def train():
         forest.fit(X_train, y_train)
 
 if __name__ == "__main__":
-    train()
+    train.serve(name="train-iris")

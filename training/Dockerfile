@@ -10,4 +10,4 @@ COPY . .
 
 RUN prefect config set PREFECT_API_URL=http://host.docker.internal:4200/api
 ENV MLFLOW_TRACKING_URI=http://mlflow:5000
-CMD ["sh","-c","prefect orion start --host 0.0.0.0 & sleep 25 && prefect deployment apply train-deployment.yaml & sleep 15 && prefect agent start -q 'default'"]
+CMD ["sh","-c","prefect server start --host 0.0.0.0 & sleep 25 && python model_training.py"]
